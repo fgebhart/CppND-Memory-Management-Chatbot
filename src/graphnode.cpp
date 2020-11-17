@@ -1,3 +1,4 @@
+#include "iostream"
 #include "graphedge.h"
 #include "graphnode.h"
 
@@ -11,7 +12,10 @@ GraphNode::~GraphNode()
     //// STUDENT CODE
     ////
 
-    delete _chatBot; 
+    // do not execute the below delete statement, since chatbot instance could
+    // be deleted multiple times. The instance is already deleted in the chatlogic
+    // std::cout << "GraphNode Destructor" << std::endl;
+    // delete _chatBot; 
 
     ////
     //// EOF STUDENT CODE

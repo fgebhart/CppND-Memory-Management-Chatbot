@@ -30,6 +30,7 @@ ChatBot::ChatBot(std::string filename)
     _image = new wxBitmap(filename, wxBITMAP_TYPE_PNG);
 }
 
+// 1. Desctructor:
 ChatBot::~ChatBot()
 {
     std::cout << "ChatBot Destructor" << std::endl;
@@ -44,6 +45,26 @@ ChatBot::~ChatBot()
 
 //// STUDENT CODE
 ////
+
+// 2. Copy Constructor:
+ChatBot::ChatBot(const ChatBot &source) {
+    std::cout << "ChatBot Copy Constructor" << std::endl;
+}
+
+// 3. Copy Assignment Constructor:
+ChatBot &ChatBot::operator=(const ChatBot &source) {
+    std::cout << "ChatBot Copy Assignment Constructor" << std::endl;
+}
+
+// 4. Move Constructor:
+ChatBot::ChatBot(ChatBot &&source) noexcept {
+    std::cout << "ChatBot Move Constructor" << std::endl;
+}
+
+// 5. Move Assignment Constructor:
+ChatBot &ChatBot::operator=(ChatBot &&source) noexcept {
+    std::cout << "ChatBot Move Assignment Constructor" << std::endl;
+}
 
 ////
 //// EOF STUDENT CODE

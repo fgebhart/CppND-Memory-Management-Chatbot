@@ -28,13 +28,14 @@ ChatBot::ChatBot(std::string filename)
     _rootNode = nullptr;
 
     // load image into heap memory
-    _image = std::make_shared<wxBitmap>(filename, wxBITMAP_TYPE_PNG);
+    _image = new wxBitmap(filename, wxBITMAP_TYPE_PNG);
 }
 
 // 1. Desctructor:
 ChatBot::~ChatBot()
 {
     std::cout << "ChatBot Destructor" << std::endl;
+    delete _image;
 }
 
 //// STUDENT CODE
@@ -43,7 +44,7 @@ ChatBot::~ChatBot()
 // 2. Copy Constructor:
 ChatBot::ChatBot(ChatBot &source) {
     std::cout << "ChatBot Copy Constructor" << std::endl;
-    _image = source.GetImage();
+    _image = new wxBitmap(*source._image);
     _chatLogic = nullptr;
     _rootNode = nullptr;
 }
@@ -54,7 +55,7 @@ ChatBot &ChatBot::operator=(ChatBot &source) {
     if (this == &source)
         return *this;
 
-    _image = source.GetImage();
+    _image = new wxBitmap(*source._image);
     _chatLogic = nullptr;
     _rootNode = nullptr;
 
@@ -64,7 +65,9 @@ ChatBot &ChatBot::operator=(ChatBot &source) {
 // 4. Move Constructor:
 ChatBot::ChatBot(ChatBot &&source) noexcept {
     std::cout << "ChatBot Move Constructor" << std::endl;
-    _image = source.GetImage();
+    _image = source._image;
+    source._image = nullptr;
+
     _chatLogic = nullptr;
     _rootNode = nullptr;
 }
@@ -75,7 +78,9 @@ ChatBot &ChatBot::operator=(ChatBot &&source) noexcept {
     if (this == &source)
         return *this;
 
-    _image = source.GetImage();
+    _image = source._image;
+    source._image = nullptr;
+
     _chatLogic = nullptr;
     _rootNode = nullptr;
 

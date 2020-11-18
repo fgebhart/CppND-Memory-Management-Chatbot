@@ -29,8 +29,8 @@ public:
     ChatBot(std::string filename); // constructor WITH memory allocation
     
     ~ChatBot();                                     // 1. Desctructor
-    ChatBot(ChatBot &source);                 // 2. Copy Constructor
-    ChatBot &operator=(ChatBot &source);      // 3. Copy Assignment Constructor
+    ChatBot(ChatBot &source);                       // 2. Copy Constructor
+    ChatBot &operator=(ChatBot &source);            // 3. Copy Assignment Constructor
     ChatBot(ChatBot &&source) noexcept;             // 4. Move Constructor
     ChatBot& operator=(ChatBot &&source) noexcept;  // 5. Move Assignment Constructor
 

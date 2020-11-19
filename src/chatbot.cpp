@@ -35,9 +35,10 @@ ChatBot::ChatBot(std::string filename)
 ChatBot::~ChatBot()
 {
     std::cout << "ChatBot Destructor" << std::endl;
-    
+
     // delete _image;
-    if (_image != NULL ){
+    if (_image != NULL)
+    {
         delete _image;
         _image = NULL;
     }
@@ -47,7 +48,8 @@ ChatBot::~ChatBot()
 ////
 
 // 2. Copy Constructor:
-ChatBot::ChatBot(ChatBot &source) {
+ChatBot::ChatBot(ChatBot &source)
+{
     std::cout << "ChatBot Copy Constructor" << std::endl;
     _image = source._image;
     _chatLogic = source._chatLogic;
@@ -56,7 +58,8 @@ ChatBot::ChatBot(ChatBot &source) {
 }
 
 // 3. Copy Assignment Constructor:
-ChatBot &ChatBot::operator=(ChatBot &source) {
+ChatBot &ChatBot::operator=(ChatBot &source)
+{
     std::cout << "ChatBot Copy Assignment Constructor" << std::endl;
     if (this == &source)
         return *this;
@@ -70,7 +73,8 @@ ChatBot &ChatBot::operator=(ChatBot &source) {
 }
 
 // 4. Move Constructor:
-ChatBot::ChatBot(ChatBot &&source) noexcept {
+ChatBot::ChatBot(ChatBot &&source) noexcept
+{
     std::cout << "ChatBot Move Constructor" << std::endl;
     _image = source._image;
 
@@ -86,7 +90,8 @@ ChatBot::ChatBot(ChatBot &&source) noexcept {
 }
 
 // 5. Move Assignment Constructor:
-ChatBot &ChatBot::operator=(ChatBot &&source) noexcept {
+ChatBot &ChatBot::operator=(ChatBot &&source) noexcept
+{
     std::cout << "ChatBot Move Assignment Constructor" << std::endl;
     if (this == &source)
         return *this;

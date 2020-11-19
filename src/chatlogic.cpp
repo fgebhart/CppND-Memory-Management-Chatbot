@@ -11,7 +11,6 @@
 #include "chatbot.h"
 #include "chatlogic.h"
 
-
 ChatLogic::ChatLogic()
 {
     //// STUDENT CODE
@@ -174,9 +173,8 @@ void ChatLogic::LoadAnswerGraphFromFile(std::string filename)
     //// STUDENT CODE
     ////
 
-    auto chatbot = ChatBot("../images/chatbot.png");
-
     // create instance of chatbot
+    auto chatbot = ChatBot("../images/chatbot.png");
     _chatBot = &chatbot;
 
     // add pointer to chatlogic so that chatbot answers can be passed on to the GUI
@@ -192,7 +190,7 @@ void ChatLogic::LoadAnswerGraphFromFile(std::string filename)
 
             if (rootNode == nullptr)
             {
-                rootNode = (*it).get(); // assign current node to root
+                rootNode = it->get(); // assign current node to root
             }
             else
             {
@@ -204,7 +202,7 @@ void ChatLogic::LoadAnswerGraphFromFile(std::string filename)
     // add chatbot to graph root node
     _chatBot->SetRootNode(rootNode);
     rootNode->MoveChatbotHere(std::move(chatbot));
-    
+
     ////
     //// EOF STUDENT CODE
 }
